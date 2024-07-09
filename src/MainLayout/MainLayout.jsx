@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import Footer from "../Componant/Footer/Footer";
 
 const MainLayout = () => {
@@ -12,9 +12,33 @@ const MainLayout = () => {
         <nav>
           <ul className="flex">
             <li className="flex gap-5">
-              <a href="/">Home</a>
-              <a href="/products">Products</a>
-              <a href="/dashboard">Dashboard</a>
+              <NavLink
+                to="/"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                Home
+              </NavLink>
+              
+              <NavLink
+                to="/products"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                Products
+              </NavLink>
+              
+              <NavLink
+                to="/dashboard"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                Dashboard
+              </NavLink>
+            
             </li>
           </ul>
         </nav>
